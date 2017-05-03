@@ -62,6 +62,9 @@ public class MediaFeedData {
 	@SerializedName("users_in_photo")
 	private List<UsersInPhoto> usersInPhotoList;
 
+	@SerializedName("carousel_media")
+	private List<CarouselMedia> carouselMedia;
+	
 	/**
 	 * @return the location
 	 */
@@ -234,8 +237,6 @@ public class MediaFeedData {
 		this.videos = videos;
 	}
 
- 
-
 	public List<UsersInPhoto> getUsersInPhotoList() {
 		return usersInPhotoList;
 	}
@@ -244,7 +245,25 @@ public class MediaFeedData {
 		this.usersInPhotoList = usersInPhotoList;
 	}
 
-	@Override
+	/**
+	 * Return the carousel media.
+	 *
+	 * @return {@link List} of {@link CarouselMedia} the carousel media
+	 */
+	public List<CarouselMedia> getCarouselMedia() {
+        return carouselMedia;
+    }
+
+	/**
+	 * Set the carousel media.
+	 *
+	 * @param carouselMedia {@link List} of {@link CarouselMedia} the carousel media
+	 */
+	public void setCarouselMedia(List<CarouselMedia> carouselMedia) {
+        this.carouselMedia = carouselMedia;
+    }
+
+    @Override
 	public String toString() {
 		return String
 				.format("MediaFeedData [caption=%s, comments=%s, createdTime=%s, id=%s, imageFilter=%s, images=%s, likes=%s, link=%s, location=%s, tags=%s, type=%s, user=%s, userHasLiked=%s, usersInPhoto=%s]",
