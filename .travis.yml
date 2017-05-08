@@ -1,17 +1,3 @@
-addons:
-  coverity_scan:
-    branch_pattern: master
-    build_command: mvn -DskipTests=true compile
-    build_command_prepend: mvn clean
-    notification_email: sachin.handiekar@gmail.com
-    project:
-      description: Build submitted via Travis CI
-      name: sachin-handiekar/jInstagram
-after_success:
-- codecov
-- mvn cobertura:cobertura coveralls:report
-- echo "<settings><servers><server><id>ossrh</id><username>\${env.OSSRH_USER}</username><password>\${env.OSSRH_PASS}</password></server></servers></settings>" > ~/settings.xml
-- if [ -z ${TRAVIS_TAG} ]; then mvn deploy --settings ~/settings.xml; fi
 before_install:
 - wget https://dl.dropboxusercontent.com/u/7897865/apache-maven-3.3.9.zip
 - unzip -qq apache-maven-3.3.9.zip
